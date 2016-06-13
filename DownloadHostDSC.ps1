@@ -4,15 +4,15 @@ configuration DownloadHostDSC
     Import-DscResource -ModuleName 'cSABnzbd'
     Import-DscResource -ModuleName 'cSonarr'    
 
-    cSABnzbd SABnzbdInstaller
+    cSABnzbdInstall SABnzbdInstaller
     {
         Ensure    = 'Present'
     }
     
-    cSonarr SonarrInstaller
+    cSonarrInstall SonarrInstaller
     {
         Ensure    = 'Present'
-        DependsOn = '[cSABnzbd]SABnzbdInstaller'
+        DependsOn = '[cSABnzbdInstall]SABnzbdInstaller'
     }
 
 }
